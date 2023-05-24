@@ -3,10 +3,11 @@ wordpressPassword: password
 service:
   type: NodePort
   nodePorts:
-    http: "30008"
+    http: "32000"
 persistence:
   enabled: false
 mariadb:
+  enabled: true
   primary:
     persistence:
       enabled: false
