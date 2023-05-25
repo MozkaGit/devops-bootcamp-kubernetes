@@ -28,9 +28,37 @@ Suivez les étapes ci-dessous pour déployer WordPress avec Kubernetes :
 5. Créez un service pour WordPress :
    - Utilisez le fichier yml fourni (`service-nodeport-wordpress.yml`) pour créer un service NodePort pour exposer le frontend de WordPress en exécutant la commande suivante : `kubectl apply -f service-nodeport-wordpress.yml`
 
-6. Accédez à WordPress :
+6.
+
+7. Accédez à WordPress :
    - Utilisez la commande `hostname -I` pour obtenir l'adresse IP de votre cluster.
    - Ouvrez un navigateur web et accédez à l'adresse IP du cluster avec le NodePort spécifié pour le service WordPress dans le fichier `service-nodeport-wordpress.yml`.
+    <br>
+    <br>
+   ![proof-wordpress](https://github.com/MozkaGit/devops-bootcamp-kubernetes/assets/43102748/e63e2559-8b0c-45c3-ac67-73cafd58f3e1)
+
+## Preuve du montage du volume
+
+Le déploiement de WordPress utilise un volume monté pour stocker les données dans le répertoire `/data` du nœud. Vous pouvez vérifier que le volume a bien été monté en exécutant la commande suivante :
+
+```shell
+kubectl get pods -n wordpress
+kubectl describe pod <nom_du_pod> -n wordpress
+```
+
+Dans les détails du pod, vous devriez voir une section indiquant le montage du volume:
+
+```
+Volumes:
+  volume:
+    Type:          HostPath (bare host directory volume)
+    Path:          /data
+    HostPathType:  DirectoryOrCreate
+```
+
+Il est également possible de vérifier la présence des fichiers essentiels à WordPress dans le répertoire `/data` du nœud.:
+
+![volume-proof](https://github.com/MozkaGit/devops-bootcamp-kubernetes/assets/43102748/10b1ec24-fc9a-444b-ac9c-4134a34c550b)
 
 ## Architecture du projet
 
