@@ -34,7 +34,7 @@ Suivez les étapes ci-dessous pour déployer WordPress avec Kubernetes :
    - Utilisez la commande `hostname -I` pour obtenir l'adresse IP de votre cluster.
    - Ouvrez un navigateur web et accédez à l'adresse IP du cluster avec le NodePort spécifié pour le service WordPress dans le fichier `service-nodeport-wordpress.yml`.
     <br>
-    <br>
+
    ![proof-wordpress](https://github.com/MozkaGit/devops-bootcamp-kubernetes/assets/43102748/e63e2559-8b0c-45c3-ac67-73cafd58f3e1)
 
 ## Preuve du montage du volume
