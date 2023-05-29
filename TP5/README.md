@@ -28,6 +28,8 @@ mariadb:
       enabled: false
 ```
 
+5. Attendre que les conteneurs démarre puis se connecter sur WordPress à l'aide de son navigateur web en utilisant l'ip du système hôte suivi du NodePort.
+
 ## Commandes utilisées
 
 ```shell
